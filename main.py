@@ -5,8 +5,8 @@ from dotenv import dotenv_values
 config = {**dotenv_values(".env.secret")}
 
 user_params = {
-    "token": config['TOKEN'],
-    "username": config['USERNAME'],
+    "token": config["TOKEN"],
+    "username": config["USERNAME"],
     "agreeTermsOfService": "yes",
     "notMinor": "yes",
 }
@@ -25,7 +25,7 @@ graph_config = {
 }
 
 headers = {
-    "X-USER-TOKEN": config['TOKEN'],
+    "X-USER-TOKEN": config["TOKEN"],
 }
 
 # response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
@@ -37,7 +37,9 @@ time_now = dt.datetime.now()
 today = time_now.strftime("%Y%m%d")
 yesterday = dt.datetime(year=2024, month=4, day=25).strftime("%Y%m%d")
 
-pixels_endpoint = f"{config['pixela_endpoint']}/{config['USERNAME']}/graphs/{config['GRAPH_ID']}"
+pixels_endpoint = (
+    f"{config['pixela_endpoint']}/{config['USERNAME']}/graphs/{config['GRAPH_ID']}"
+)
 
 graph_pixels = {
     "date": today,
